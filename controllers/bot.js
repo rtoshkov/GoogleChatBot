@@ -1,8 +1,19 @@
 const router = require('express').Router();
+const {getSheetInfo} = require('../services/googleSheets.js')
 
+router.get('/', async (req, res) => {
+    const info = await getSheetInfo();
+    let commands = {};
 
-router.get('/', (req, res) => {
-    res.status(200).json({message: 'It\'s working'});
+    info.forEach((value) => {
+        let [firstCell, secondCell] = value;
+        if (firstCell !== undefined) {
+            commands[firstCell] = secondCell;
+        }
+    })
+
+    console.log(commands.hasOwnProperty('test'));
+    res.status(200).json({message: commands});
 })
 
 

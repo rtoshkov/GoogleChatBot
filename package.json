@@ -19,7 +19,9 @@
   },
   "homepage": "https://github.com/rtoshkov/GoogleChatBot#readme",
   "dependencies": {
+    "-": "^0.0.1",
     "express": "^4.18.1",
+    "google-spreadsheet": "^3.3.0",
     "nodemon": "^2.0.18"
   }
 }
